@@ -1,0 +1,124 @@
+// ----------------------------------------
+// Velocity: LESS > Main > Table
+// ----------------------------------------
+
+// ------------------------------
+// #Table
+// ------------------------------
+
+table {
+	.paragraph;
+	width: 100%;
+	border: none;
+	border-collapse: separate;
+	border-spacing: 0;
+	margin: 0 0 1em;
+	color: inherit;
+		
+	@media @mobile {
+		display: block;
+		border-top: 1px solid;
+		border-bottom: 1px solid;
+	}
+	
+	.responsivecolumns & {
+		display: block;
+		border-top: 1px solid;
+		border-bottom: 1px solid;
+	}
+}
+
+// Table Body and Table Row
+
+tbody,
+tr {
+	@media @mobile {
+		display: block;
+	}
+	
+	.responsivecolumns & {
+		display: block;
+	}
+}
+
+// Table Cell
+
+td, th {
+	.paragraph;
+	border: none;
+	background-color: transparent;
+	padding-bottom: 0;
+	color: inherit;
+	
+	tr:first-child & {
+		border-top: 1px solid;
+	}
+		
+	@media @mobile {
+		display: block;
+	}
+	
+	.responsivecolumns & {
+		display: block;
+	}
+}
+
+th {
+	padding: 0.5em;
+	border-bottom: 1px solid;
+	font-weight: 700;
+		
+	@media @mobile {
+		display: none;
+	}
+	
+	.responsivecolumns & {
+		display: none;
+	}
+}
+
+td {
+	border-bottom: 1px solid @color-text--light;
+	padding: 1em 0.5em;
+	line-height: 1.5em;
+		
+	@media @mobile {
+		display: block;
+		border-bottom: 1px solid transparent;
+		padding: 0;
+		
+		&:first-child {
+			padding-top: 1em;
+		}
+		
+		&:last-child {
+			border-bottom: 1px solid @color-text--light;
+			padding-bottom: 1em;
+		}
+		
+		tr:last-child &:last-child {
+			border-bottom: 1px solid transparent;
+			padding-bottom: 0;
+		}
+	}
+	
+	.responsivecolumns & {
+		display: block;
+		border-bottom: 1px solid transparent;
+		padding: 0;
+		
+		&:first-child {
+			padding-top: 1em;
+		}
+		
+		&:last-child {
+			border-bottom: 1px solid @color-text--light;
+			padding-bottom: 1em;
+		}
+		
+		tr:last-child &:last-child {
+			border-bottom: 1px solid transparent;
+			padding-bottom: 0;
+		}
+	}
+}

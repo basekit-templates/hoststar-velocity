@@ -1,0 +1,330 @@
+// ----------------------------------------
+// Velocity: LESS > Plugins > Blog > Blog Post
+// ----------------------------------------
+
+// ------------------------------
+// #Article
+// ------------------------------
+
+.template__content >,
+.template__content section > {
+	.widget[data-name="blogpost"] {
+		padding: 0;
+		background: transparent;
+
+		.blogpost {
+			width: auto;
+			max-width: none;
+		}
+	}
+}
+
+.blogpost__post-article {
+	position: relative;
+	margin-bottom: 0;
+	
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+// ------------------------------
+// #Image
+// ------------------------------
+.blogpost {
+	.blogpost__post-image {
+		.paragraph;
+		position: relative;
+		background-color: transparent;
+		margin: 0 auto;
+		padding: 0;
+		color: inherit;
+		.animation(fadeInUp 1s cubic-bezier(.70,0,0,1) 0s forwards);
+
+		.responsivecolumns & {
+			border: none;
+		}
+
+		&:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: @color__blogpost-article--background;
+
+			@media @mobile {
+				top: -6px;
+			}
+		}
+	}
+
+	.blogpost__image-link {
+		display: block;
+		padding-bottom: 900px;
+		background-position: center;
+		background-size: cover;
+
+		@media @desktop {
+			height: 60vw;
+			padding-bottom: 60%;
+		}
+
+		@media @tablet-horizontal {
+			height: 100vw;
+			padding-bottom: 100%;
+		}
+
+		@media @mobile {
+			height: 150vw;
+			padding-bottom: 150%;
+		}
+
+		// Using the background image instead.
+
+		.image {
+			display: none;
+		}
+	}
+}
+
+// ------------------------------
+// #Post Header, Content, and Footer
+// ------------------------------
+
+.blogpost__post-content,
+.blogpost__post-footer {
+	.widget-styles;
+}
+
+.blogpost__post-content {
+	position: relative;
+	padding-bottom: 0;
+	background-color: @color__blogpost--background;
+	padding-bottom: 5em !important;
+	
+	&:after {
+		content: "";
+		position: absolute;
+		left: 50%;
+		bottom: -2em;
+		margin-left: -1px;
+		height: 6em;
+		width: 1px;
+		background-color: fade(@color__blogpost-title--text, 75%);
+	}
+	
+	ul {
+		li {
+			&:before {
+				position: absolute;
+				margin-left: -2em;
+				content: "\2014";
+			}
+		}
+	}
+}
+
+.blogpost__post-footer {
+	position: static;
+	z-index: 5;
+	padding-top: 2em;
+	text-align: center;
+}
+
+.blogpost__post-header {
+	padding-bottom: 1em;
+
+	@media @mobile {
+		padding-bottom: 1.5em;
+	}
+}
+
+.blogpost__post-title {
+	.heading--1;
+	position: relative;
+	text-align: center;
+	color: @color__blogpost-title--text;
+	margin-top: 20px;
+	margin-bottom: 75px;
+	padding-right: 2em;
+	padding-left: 2em;
+	hyphens: none;
+
+	@media @desktop {
+		margin-top: 10px;
+	}
+
+	@media @tablet-horizontal {
+		padding-right: 1em;
+		padding-left: 1em;
+	}
+
+	@media @mobile {
+		margin-bottom: 75px;
+		padding-right: 0;
+		padding-left: 0;
+	}
+		
+	&:before {
+		content: "";
+		position: absolute;
+		top: 100%;
+		bottom: -75px;
+		left: 50%;
+		margin-left: -1px;
+		width: 1px;
+		background-color: fade(@color__blogpost-title--text, 75%);
+	}
+	
+	.blogpost__post-image ~ .blogpost__post-content & {
+		margin-top: -380px;
+		margin-bottom: 260px;
+
+		@media @desktop {
+			margin-top: -35vw;
+			margin-bottom: 28vw;
+		}
+
+		@media @tablet-horizontal {
+			margin-top: -68vw;
+			margin-bottom: 58vw;
+		}
+
+		@media @tablet {
+				margin-top: -65vw;
+				margin-bottom: 55vw;
+		}
+
+		@media @mobile {
+			margin-top: -96vw;
+			margin-bottom: 82vw;
+		}
+
+		&:before {
+			bottom: 100%;
+			bottom: -260px;
+
+			@media @desktop {
+				bottom: -28vw;
+			}
+
+			@media @tablet-horizontal {
+				bottom: -58vw;
+			}
+
+			@media @tablet {
+				bottom: -55vw;
+			}
+
+			@media @mobile {
+				bottom: -82vw;
+			}
+		}
+	}
+}
+
+// ------------------------------
+// #Post Timestamp
+// ------------------------------
+
+.blogpost__post-footer {
+	.timestamp {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		max-width: none;
+		color: @color__blogpost-title--text;
+		
+		.blogpost__post-image ~ & {
+			top: 500px;
+
+			@media @desktop {
+				top: 24vw;
+			}
+
+			@media @tablet-horizontal {
+				top: 31vw;
+			}
+
+			@media @tablet {
+				top: 34vw;
+			}
+
+			@media @mobile {
+				top: 53vw;
+			}
+		}
+	}
+}
+
+// ------------------------------
+// #Post Attributes
+// ------------------------------
+
+.blogpost__post-attributes {
+	position: relative;
+	.clearfix();
+	
+	@media @mobile {
+		display: block;
+	}
+}
+
+.post-category,
+.post-tags {
+	display: block;
+	text-align: center;
+	margin-top: 0.5em;
+}
+
+.post-tags {
+	padding-bottom: 1em;
+}
+
+.category-title,
+.tags-title {
+	display: block;
+	position: relative;
+	vertical-align: middle;
+    margin: 0;
+    padding: 1em 0 0.5em;
+	font-weight: bold;
+	line-height: 1em;
+}
+
+.category-title {
+	margin-top: 0;
+}
+
+a.blogpost__category-link,
+a.blogpost__tag-link {
+    hyphens: none;
+}
+
+// ------------------------------
+// #Sharing Links
+// ------------------------------
+
+.blogpost__sharing-links {
+	.clearfix();
+}
+
+.blogpost__network-item {
+	display: inline-block;
+    margin: 0.5em 0.25em;
+	padding: 0;
+	
+	@media @tablet {
+		display: block;
+    	margin-bottom: 1em;
+	}
+}
+
+.blogpost__button {
+	&:before {
+		display: none;
+	}
+}

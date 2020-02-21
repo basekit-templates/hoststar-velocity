@@ -1,1 +1,4 @@
-# hoststar-velocity
+Velocity
+====
+
+BaseKit's Velocity Template
